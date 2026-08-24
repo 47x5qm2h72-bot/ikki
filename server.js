@@ -17,7 +17,7 @@ app.post('/api/chat', async (req, res) => {
     try {
         const { messages } = req.body;
         const response = await groq.chat.completions.create({
-            model: 'llama-3.1-8b-instant',
+            model: 'llama-3.3-70b-versatile',
             messages: [
                 { role: 'system', content: 'Du er en hjelpsom AI-coach for Borke Coaching.' },
                 ...messages
