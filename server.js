@@ -17,7 +17,7 @@ app.post('/api/chat', async (req, res) => {
     try {
         const { messages } = req.body;
         const response = await groq.chat.completions.create({
-            model: 'mixtral-8x7b-32768',
+            model: 'llama3-8b-8192',
             messages: [
                 { role: 'system', content: 'Du er en hjelpsom AI-coach for Borke Coaching.' },
                 ...messages
@@ -31,6 +31,7 @@ app.post('/api/chat', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`API kjører på port ${PORT}!`);
 });
